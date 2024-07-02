@@ -8,7 +8,7 @@ SCRIPT_NAME="celestia_multi_sdk_script"
 OSTYPE="$(uname | tr '[:upper:]' '[:lower:]')"
 
 #BINARY=.
-PROCESSNAME="cosmosTestd"
+PROCESSNAME="celestiad"
 BINARY="./bin/"$PROCESSNAME
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
@@ -18,7 +18,7 @@ elif [[ "$OSTYPE" = "linux"* ]]; then
 fi
 
 CHAIN_ID="Celestia" #블록체인 ID
-USER="mssong"
+USER="hjsong"
 
 UNIT_REAP="utia"
 # UNIT_AREAP=areap
