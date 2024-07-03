@@ -58,7 +58,7 @@ sed -i.temp "s/laddr = \"tcp:\/\/0.0.0.0:26656\"/laddr = \"tcp:\/\/${PRIVATE_HOS
 sed -i.temp 's/allow_duplicate_ip = false/allow_duplicate_ip = true/g' $CURRENT_DATA_DIR/config/config.toml
 
 # Mempool Size
-sed -i.temp 's/size = 5000/size = 10000/g' $CURRENT_DATA_DIR/config/config.toml
+sed -i.temp 's/size = 5000/size = 60000/g' $CURRENT_DATA_DIR/config/config.toml
 
 # [Minimum Gas Prices (0.1*200,000 =20,000ureap)->0.02reap Fees]
 sed -i.temp 's/minimum-gas-prices = \"\"/minimum-gas-prices = \"0stake\"/g' $CURRENT_DATA_DIR/config/app.toml
