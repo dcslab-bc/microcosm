@@ -140,6 +140,9 @@ sed -i.temp "s/address = \"tcp:\/\/0.0.0.0:1317\"/address = \"tcp:\/\/0.0.0.0:${
 # [pprof port]
 sed -i.temp "s/pprof_laddr = \"localhost:6060\"/pprof_laddr = \"localhost:${PPROF_PORTS[$INDEX]}\"/g" $CURRENT_DATA_DIR/config/config.toml
 
+# [seeds]
+sed -i.temp "s/seeds = \".*\"/seeds = \"\"/g" $CURRENT_DATA_DIR/config/config.toml
+
 # [persistent peers]
 echo "Update persistent_peers"
 i=0
@@ -153,7 +156,8 @@ i=0
   done  
   PERSISTENT_PEERS=${PERSISTENT_PEERS%,} #%, = ,를 제거하겠다는 의미
   echo "PERSISTENT_PEERS : "$PERSISTENT_PEERS
-  sed -i "s/persistent_peers = \"\"/persistent_peers = \"$PERSISTENT_PEERS\"/g" $CURRENT_DATA_DIR/config/config.toml
+  #sed -i "s/persistent_peers = \"\"/persistent_peers = \"$PERSISTENT_PEERS\"/g" $CURRENT_DATA_DIR/config/config.toml
+  sed -i.temp "s/persistent_peers = \".*\"/persistent_peers = \"$PERSISTENT_PEERS\"/g" $CURRENT_DATA_DIR/config/config.toml
   i=$((${i}+1))
 done
 rm -rf $CURRENT_DATA_DIR/config/app.toml.temp
